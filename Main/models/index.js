@@ -1,4 +1,4 @@
-const participants = require('./Participants');
+const Participants = require('./Participants');
 const Project = require('./Project');
 
 // participants.hasMany(Books, {
@@ -10,4 +10,4 @@ const Project = require('./Project');
 //   foreignKey: 'user_id'
 // });
 
-// module.exports = { participants, Project };
+module.exports = { Participants };
