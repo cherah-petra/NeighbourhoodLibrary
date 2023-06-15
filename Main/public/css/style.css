@@ -24,4 +24,5 @@ header, .project:not(:last-child) {
 }
 main{
   background-image: url(./neighbourbase.png);
+  background-size: 1440px;
 }
