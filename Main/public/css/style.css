@@ -22,3 +22,7 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+main{
+  background-image: url(./neighbourbase.png);
+  background-size: 1440px;
+}
