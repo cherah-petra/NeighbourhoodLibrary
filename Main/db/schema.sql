@@ -2,13 +2,13 @@ CREATE DATABASE neighborhoodLib_db;
 USE neighborhoodLib_db;
 CREATE TABLE participants (
 	person_id INT AUTO_INCREMENT PRIMARY KEY,
-    firstName VARCHAR(255),
-    lastName VARCHAR(255),
-    Address VARCHAR(255),
-    Email VARCHAR(255),
-    phoneNum VARCHAR(255),
-    userPass VARCHAR(255),
-    userStatus VARCHAR(255)
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    address VARCHAR(255),
+    email VARCHAR(255),
+    phone_num VARCHAR(255),
+    user_pass VARCHAR(255),
+    user_status VARCHAR(255)
     );
     
 CREATE TABLE Books (

@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 
 class Participants extends Model {
   checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.userPass);
+    return bcrypt.compareSync(loginPw, this.user_pass);
   }
 }
 
@@ -16,19 +16,19 @@ Participants.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    firstName: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lastName: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Address: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Email: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -36,18 +36,18 @@ Participants.init(
         isEmail: true,
       },
     },
-    phoneNum: {
+    phone_num: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    userPass: {
+    user_pass: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8],
       },
     },
-    userStatus: {
+    user_status: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -55,14 +55,14 @@ Participants.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.userPass = await bcrypt.hash(newUserData.userPass, 10);
+        newUserData.user_pass = await bcrypt.hash(newUserData.user_pass, 10);
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.userPass = await bcrypt.hash(updatedUserData.userPass, 10);
+        updatedUserData.user_pass = await bcrypt.hash(updatedUserData.user_pass, 10);
         return updatedUserData;
       },
-    },
+    }, 
     sequelize,
     timestamps: false,
     freezeTableName: true,
