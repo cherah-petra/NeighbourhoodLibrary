@@ -9,13 +9,14 @@ const loginFormHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch('/api/participants/login', {
       method: 'POST',
-      body: JSON.stringify({ Email:email, userPass:password }),
+      body: JSON.stringify({ email:email, user_pass:password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
+    console.log('working :)');
       // If successful, redirect the browser to the profile page
-      document.location.replace('/books');
+        document.location.replace('/books');
     } else {
       alert(response.statusText);
     }
@@ -34,14 +35,13 @@ const signupFormHandler = async (event) => {
   const status = "active";
 
   if (fname && email && password) {
-    console.log('working');
     const response = await fetch('/api/participants', {
       method: 'POST',
-      body: JSON.stringify({ firstName:fname, lastName:lname, Address:address, phoneNum:phone, Email:email, userPass:password, userStatus:status }),
+      body: JSON.stringify({ first_name:fname, last_name:lname, address:address, email:email, phone_num:phone,  user_pass:password, user_status:status }),
       headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
+    if (response.ok) { 
       document.location.replace('/books');
     } else {
       alert(response.statusText);

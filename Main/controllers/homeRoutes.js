@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { particpants, Books } = require('../models');
+const { Participants, Books } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -53,18 +53,19 @@ router.get('/', async (req, res) => {
 router.get('/books', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Books }],
+    const participantData = await Participants.findByPk(req.session.user_id, {
+      attributes: { exclude: ['user_pass'] },
     });
 
-    const user = userData.get({ plain: true });
+    console.log(participantData);
+    const user = participantData.get({ plain: true });
 
     res.render('books', {
       ...user,
       logged_in: true
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -72,7 +73,7 @@ router.get('/books', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/books');
     return;
   }
 
