@@ -10,6 +10,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+//const PORT = process.env.PORT || 80;
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -29,7 +30,16 @@ const sess = {
   })
 };
 
+
+
+//import favicon icon
+var favicon = require('serve-favicon')
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
+
+
 app.use(session(sess));
+
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);

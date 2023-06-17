@@ -1,54 +1,47 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+class BooksOut extends Model {}
 
-class Books extends Model {}
-
-Books.init(
+BooksOut.init(
   {
-    book_id: {
+    ref_num: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
+    borrow_person_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING,
+    book_lent: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Genre: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    borrow_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
 
-    bookSynopsis: {
-      type: DataTypes.STRING,
+    estimated_due: {
+      type: DataTypes.DATE,
       allowNull: false,
     },
-    partOfSeries: {
+    request_state:{
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    bookStatus: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    bookOwner: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    }
   },
   {
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'books',
+    modelName: 'booksOut',
   }
 );
 
-module.exports = Books;
+module.exports = BooksOut;
