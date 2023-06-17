@@ -6,7 +6,7 @@ class Participants extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.user_pass);
   }
-}
+} 
 
 Participants.init(
   {

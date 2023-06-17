@@ -1,15 +1,6 @@
 const Participants = require('./Participants');
 const Books = require('./Books');
+const BooksOut = require('./BooksOut');
 
 
-
-// participants.hasMany(Books, {
-//   foreignKey: 'bookOwner',
-//   onDelete: 'CASCADE'
-// });
-
-// Project.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
-
-module.exports = { Participants, Books };
+module.exports = { Participants, Books, BooksOut };
