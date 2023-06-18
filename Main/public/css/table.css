@@ -65,3 +65,16 @@ tfoot td {
             rgba(0, 0, 0, 0.5));
     border: 3px solid #2d3e50;
 }
+
+.fcc-btn {
+    background-color: #223094;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  
+  .fcc-btn:hover {
+    background-color: #bbbece;
+    text-decoration: none;
+  }

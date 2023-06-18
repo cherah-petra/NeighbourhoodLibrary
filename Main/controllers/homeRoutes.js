@@ -121,7 +121,7 @@ router.get('/borrowBook', withAuth, async (req, res) => {
 router.get('/borrowBooks/requestLoan/:id', withAuth, async (req,res)=>{
 
   try {
-    const [result, metadata] = await sequelize.query('SELECT participants.first_name, participants.last_name ,books.title, books.author, books.genre, books.book_synopsis, books.part_of_series '+
+    const [result, metadata] = await sequelize.query('SELECT participants.first_name, participants.last_name ,books.title, books.author, books.genre, books.book_synopsis, books.part_of_series, books.book_id '+
       'FROM books '+
       'INNER JOIN participants '+
       'ON participants.person_id = books.book_owner '+
@@ -133,13 +133,14 @@ router.get('/borrowBooks/requestLoan/:id', withAuth, async (req,res)=>{
       type: sequelize.SELECT
     });
 
-    // res.render('bookOverview', {
-    //   ...result[0]
-    // });
+      res.render('bookOverview', {
+        ...result[0],
+        user_id:req.session.user_id,
+        logged_in: true
+      });
 
-    res.send(result);
+    //res.send(result[0]);
 
-    //res.send('working');
   } catch (err) {
     res.status(500).json(err);
   }

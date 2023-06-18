@@ -23,7 +23,7 @@ function load_data(query = '') {
                     <td>`+ result.author + `</td>
                     <td>`+ result.genre + `</td>
                     <td>`+ result.part_of_series + `</td>
-                    <td> <a href='/borrowBooks/requestLoan/${result.book_id}' class'='btn btn-primary btn-sm'> Borrow </a></td>
+                    <td> <a href='/borrowBooks/requestLoan/${result.book_id}' class='fcc-btn'> Borrow </a></td>
                 </tr>
                 `;
             });
