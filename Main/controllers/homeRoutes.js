@@ -17,7 +17,17 @@ router.get('/', async (req, res) => {
 });
 
 
+router.get('/addBook',withAuth ,async (req, res) => {
+  try {
 
+    res.render('addBook', {
+      // projects, 
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 //route for changing status of borrow status

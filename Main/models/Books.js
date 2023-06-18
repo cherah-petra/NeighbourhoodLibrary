@@ -31,7 +31,8 @@ Books.init(
     },
     partOfSeries: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: "N/A"
     },
     bookStatus: {
       type: DataTypes.STRING,
