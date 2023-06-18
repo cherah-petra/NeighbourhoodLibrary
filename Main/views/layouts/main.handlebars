@@ -7,6 +7,8 @@
   <title>Neighbourhood Library</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/infoReq.css">
+  <link rel="stylesheet" href="/css/table.css">
 </head>
 
 <body>
@@ -22,7 +24,9 @@
 
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/books">Books</a> |
+        <a href="/books">Add Book</a> |
+        <a href="/borrowBook">Borrow a Book</a> |
+        <a href="/books">My Bookshelf</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>

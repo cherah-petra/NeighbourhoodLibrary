@@ -16,19 +16,20 @@ CREATE TABLE Books (
     title VARCHAR(255),
     author VARCHAR(255),
     Genre VARCHAR(255),
-    bookSynopsis VARCHAR(255),
-    partOfSeries VARCHAR(255),
-    bookStatus VARCHAR(255),
-    bookOwner INT, 
-    FOREIGN KEY (bookOwner) REFERENCES participants (person_id)
+    book_synopsis VARCHAR(255),
+    part_of_series VARCHAR(255),
+    book_status VARCHAR(255),
+    book_owner INT, 
+    FOREIGN KEY (book_owner) REFERENCES participants (person_id)
         );
 
 CREATE TABLE booksOut (
-	refNum INT AUTO_INCREMENT PRIMARY KEY,
-    borrowP_id INT,
-    FOREIGN KEY (borrowP_id) REFERENCES participants (person_id),
-    bookLent INT,
-    FOREIGN KEY (bookLent) REFERENCES Books (book_id),
-    borrowDate VARCHAR(255),
-    estDue VARCHAR(255)
+	ref_num INT AUTO_INCREMENT PRIMARY KEY,
+    borrow_person_id INT,
+    FOREIGN KEY (borrow_person_id) REFERENCES participants (person_id),
+    book_lent INT,
+    FOREIGN KEY (book_lent) REFERENCES Books (book_id),
+    borrow_date VARCHAR(255),
+    estimated_due VARCHAR(255),
+    request_state VARCHAR(255)
     );
