@@ -1,5 +1,11 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "express": "^4.18.2",
+    "mysql2": "^3.4.0",
+    "qrcode": "^1.5.3"
+=======
     "mysql2": "^3.4.0"
+>>>>>>> 3a74f3144cd172c9ec6f9f1eb43e94acfab5d8ff
   }
 }
