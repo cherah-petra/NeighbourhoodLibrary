@@ -32,6 +32,7 @@ body {
   background-image: url(/img/neighbourbase.jpg);
   background-position: top;
   background-repeat: no-repeat;
+  padding-bottom: 120px;
 }
 
 .topSection {
@@ -62,6 +63,10 @@ h1 {
 h2 {
   font-size: 40px;
   font-weight: 800;
+  font-family: 'Pacifico', cursive;
+  padding-top: 10px;
+  padding-bottom: 5px;
+
 }
 
 .card-header {
