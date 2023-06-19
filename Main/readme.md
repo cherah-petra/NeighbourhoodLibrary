@@ -20,7 +20,6 @@ Future expansion goals include:
 - QR Codes
 - node-qrcode
 
-
 ## Usage
 
 File can used and shared to for knowledge expansion or general use as required. 
