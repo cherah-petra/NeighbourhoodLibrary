@@ -30,6 +30,7 @@ router.get('/addBook',withAuth ,async (req, res) => {
 });
 
 
+
 //route for changing status of borrow status
 router.get('/loanApproval/:idReq', async (req, res) => {
 
@@ -77,25 +78,25 @@ router.get('/loanApproval/:idReq', async (req, res) => {
 
 
 // // Use withAuth middleware to prevent access to route
-router.get('/books', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const participantData = await Participants.findByPk(req.session.user_id, {
-      attributes: { exclude: ['user_pass'] },
-    });
+// router.get('/books', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const participantData = await Participants.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['user_pass'] },
+//     });
 
-    console.log(participantData);
-    const user = participantData.get({ plain: true });
+//     console.log(participantData);
+//     const user = participantData.get({ plain: true });
 
-    res.render('books', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.render('books', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -191,6 +192,94 @@ router.get('/search', withAuth, async (req, res) => {
 
 
 
+});
+
+router.get('/myBooks/search', withAuth, async (req, res) => {
+  // try {
+  //   const query = req.query.q;
+
+  //   var sql = '';
+  //   // sql = `SELECT * FROM books WHERE book_owner=${req.session.user_id} ORDER BY book_id`;
+
+  //   if (query != '') {
+  //     sql = `SELECT * FROM books WHERE (title LIKE '%${query}%' OR author LIKE '%${query}%' OR genre LIKE '%${query}%' OR part_of_series LIKE '%${query}%' ) AND book_owner=${req.session.user_id}`;
+  //   }
+  //   else {
+  //     sql = `SELECT * FROM books WHERE book_owner=${req.session.user_id} ORDER BY book_id`;
+  //   }
+
+
+
+
+  //   // //get the information and send loan information to the front end
+  //   const [results, metadata] = await sequelize.query(sql, {
+  //     plain: false,
+  //     raw: true,
+  //     type: sequelize.SELECT
+  //   });
+
+  //   res.send(results);
+
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+
+
+
+
+});
+
+
+router.get('/books', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const participantData = await Participants.findByPk(req.session.user_id, {
+      attributes: { exclude: ['user_pass'] },
+    });
+    console.log(participantData);
+    const user = participantData.get({ plain: true });
+    res.render('myBook', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/showBooks', withAuth, async (req, res) => {
+   
+    try {
+      const query = req.query.q;
+  
+      var sql = '';
+      // sql = `SELECT * FROM books WHERE book_owner=${req.session.user_id} ORDER BY book_id`;
+  
+      if (query != '') {
+        sql = `SELECT * FROM books WHERE (title LIKE '%${query}%' OR author LIKE '%${query}%' OR genre LIKE '%${query}%' OR part_of_series LIKE '%${query}%' ) AND book_owner=${req.session.user_id}`;
+      }
+      else {
+        sql = `SELECT * FROM books WHERE book_owner=${req.session.user_id} ORDER BY book_id`;
+      }
+  
+  
+  
+  
+      // //get the information and send loan information to the front end
+      const [results, metadata] = await sequelize.query(sql, {
+        plain: false,
+        raw: true,
+        type: sequelize.SELECT
+      });
+  
+      res.send(results);
+  
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  
+    
 });
 
 module.exports = router;
