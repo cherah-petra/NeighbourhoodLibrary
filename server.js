@@ -32,9 +32,9 @@ const sess = {
 
 
 
-// //import favicon icon
-// var favicon = require('serve-favicon')
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+//import favicon icon
+var favicon = require('serve-favicon')
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 
 
