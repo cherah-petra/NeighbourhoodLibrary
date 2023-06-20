@@ -57,7 +57,7 @@ router.post('/createRquest', withAuth, async (req, res) => {
       });
 
       var ref_num = result[0].ref_num;
-      var url = 'http://PCIp/loanApproval/' + ref_num;
+      var url = 'https://neighbourhood-library-65950eb0f456.herokuapp.com/loanApproval/' + ref_num;
 
 
     } catch (err) {
