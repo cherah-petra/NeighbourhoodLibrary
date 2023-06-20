@@ -29,6 +29,12 @@ Screenshots: ![Neighbourhoodlibrary](public/img/screencapture-127-0-0-1-5501-ind
 ![ce715e782cd7db26f429c33e42ec0406](https://github.com/cherah-petra/NeighbourhoodLibrary/assets/33495492/0102270e-3da6-4b2d-8373-43ea3d15b562)
  ![9c9bacbc39139fc03a819a0dd2fd552e](https://github.com/cherah-petra/NeighbourhoodLibrary/assets/33495492/b5419e72-9c80-4480-8a94-e64615ac4b2b)
 
+## Collaborators 
+
+- Cheryl Muschallik (https://github.com/cherah-petra/)
+- Christopher Rodrigues (https://github.com/rethissunstar/)
+- Boris Cabrera (https://github.com/boro101094/)
+- Keegan Omel (https://github.com/Keegan-Omel/)
 
 ## Credit
 
