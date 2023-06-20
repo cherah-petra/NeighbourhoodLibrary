@@ -7,9 +7,9 @@ if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(
-    'neighborhoodlib_db',
-    'userp2',
-    'P212345.',
+    'heroku_b3aa98eb9f24f15',
+    'b4a83158db030b',
+    '382095da',
     {
       host: 'localhost',
       dialect: 'mysql',
