@@ -38,7 +38,7 @@ Screenshots: ![Neighbourhoodlibrary](public/img/screencapture-127-0-0-1-5501-ind
 
 ## Credit
 
-- Starter code by a-nyx from 12-Stu_Connect-Node
+- Starter code by a-nyx from 28-Stu_Mini-Project
 - node-qrcode (https://www.npmjs.com/package/qrcode)
 - Creating QR Codes Resource (https://blog.logrocket.com/create-read-qr-codes-node-js/)
 
